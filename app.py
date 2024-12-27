@@ -54,9 +54,9 @@ def login():
 def add():
     date = request.form['date']
     odometer = request.form['odometer']
-    amount = request.form['amount']
-    lpgPrice = request.form['lpgPrice']
-    pbPrice = request.form['pbPrice']
+    amount = request.form['amount'].replace('.', ',')
+    lpgPrice = request.form['lpgPrice'].replace('.', ',')
+    pbPrice = request.form['pbPrice'].replace('.', ',')
     row_data = RowData(date, odometer, amount, lpgPrice, pbPrice)
     add_row(row_data)
     return render_template("success.html")
